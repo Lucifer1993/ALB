@@ -30,7 +30,7 @@ rules = {
     },
     'dirtraversal':{
         'windows路径穿越': r'(win.ini|system.ini|boot.ini|cmd.exe|global.asa)',
-        'linux路径穿越': r'(/etc/passwd|/etc/shadow|/etc/hosts|.htaccess|.bash_history)',
+        'linux路径穿越': r'(etc.*passwd|etc.*shadow|etc.*hosts|.htaccess|.bash_history)',
     },
     'ArbitraryCodeExcute':{
         '任意代码执行': r'(=.*phpinfo|=.*php://|=.*\$_post\[|=.*\$_get\[|=.*\$_server\[|=.*exec\(|=.*system\(|=.*call_user_func|=.*passthru\(|=.*eval\(|=.*execute\(|=.*shell_exec\(|=.*file_get_contents\(|=.*xp_cmdshell|=.*array_map\(|=.*create_function\|=.*unserialize\(|=.*echo\()',
@@ -57,11 +57,11 @@ def analysisattack(log):
                 if match:
                     f.write('[*]日志: {0}\n'.format(log))
                     res = '[!]漏洞类型: {0}\t漏洞细节: {1}\t匹配规则: {2}'.format(key, key2, value2)
-                    print(res)
+                    print(u'{0}'.format(res))
                     f.write('{0}\n\n'.format(res))
                     return
             except:
-                print('[-] 日志分析失败: {0}'.format(log))
+                print(u'[-] 日志分析失败: {0}'.format(log))
 
 @click.command()
 @click.option('-f', type=str, help='日志文件路径')
@@ -74,7 +74,7 @@ def analysislog(f, t):
         for line in fp:
             logs.append(unquote(line.strip()))
     totalcount = len(logs)
-    print('[*] 日志数: {0}'.format(totalcount))
+    print(u'[*] 日志数: {0}'.format(totalcount))
     pool.map(analysisattack, logs)
 
 if __name__ == '__main__':
