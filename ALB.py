@@ -9,8 +9,10 @@ from gevent import monkey
 from gevent.pool import Pool
 monkey.patch_all()
 import re
+import os
 import click
 from urllib.parse import unquote
+os.popen('export LC_ALL=C.UTF-8 && export LANG=C.UTF-8')
 
 rules = {
     'SQLinject': {
