@@ -58,6 +58,10 @@ rules = {
     },
     'XXE':{
         '外部实体注入': r'(<\?xml.*\?>|<!.*>|<xsl.*>)',
+    },
+    'DangerRequests':{
+        '不安全http方法': r'("put.*http/1.|"options.*http/1.|"delete.*http/1.|"move.*http/1.|"trace.*http/1.|"copy.*http/1.|"connect.*http/1.|"propfind.*http/1.)',
+        '爬虫UA': r'(python-requests|python-urllib|"curl/)',
     }
 }
 f = open('./result.txt', 'w+')
