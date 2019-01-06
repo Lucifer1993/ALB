@@ -28,8 +28,12 @@ rules = {
         '任意文件读取/包含(linux)': r'[.]+/',
         '任意文件读取/包含(windows)': r'[.]+\\',
     },
+    'dirtraversal':{
+        'windows路径穿越': r'(win.ini|system.ini|boot.ini|cmd.exe|global.asa)',
+        'linux路径穿越': r'(/etc/passwd|/etc/shadow|/etc/hosts|.htaccess|.bash_history)',
+    },
     'ArbitraryCodeExcute':{
-        '任意代码执行': r'=.*phpinfo()',
+        '任意代码执行': r'(=.*phpinfo|=.*php://|=.*\$_post\[|=.*\$_get\[|=.*\$_server\[|=.*exec\(|=.*system\(|=.*call_user_func|=.*passthru\(|=.*eval\()',
     },
     'struts2vuln':{
         'struts005~009': r'xwork.MethodAccessor.denyMethodExecution',
