@@ -45,9 +45,20 @@ rules = {
         'struts032~057': r'@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS',
     },
     'XSS':{
-        'general': r'(<script|<img|<object|<style|<div|<table|<iframe|<meta|<body|<svg|<embed|<a|<input|<marquee|<link|<xml|<image|<html).*(alert|prompt|confirm)',
+        '一般型': r'(<script|<img|<object|<style|<div|<table|<iframe|<meta|<body|<svg|<embed|<a|<input|<marquee|<link|<xml|<image|<html).*(alert|prompt|confirm)',
         'flashxss': r'javascript:alert',
     },
+    'SSTI':{
+        '一般型': r'{{.*}}',
+        'Ruby模板注入': r'<%.*%>',
+        'Java模板注入': r'\${.*}',
+    },
+    'LDAP':{
+        '一般型': r'\*[\(\)|]+',
+    },
+    'XXE':{
+        '外部实体注入': r'(<\?xml.*\?>|<!.*>|<xsl.*>)',
+    }
 }
 f = open('./result.txt', 'w+')
 
