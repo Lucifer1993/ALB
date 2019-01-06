@@ -33,7 +33,7 @@ rules = {
         'linux路径穿越': r'(/etc/passwd|/etc/shadow|/etc/hosts|.htaccess|.bash_history)',
     },
     'ArbitraryCodeExcute':{
-        '任意代码执行': r'(=.*phpinfo|=.*php://|=.*\$_post\[|=.*\$_get\[|=.*\$_server\[|=.*exec\(|=.*system\(|=.*call_user_func|=.*passthru\(|=.*eval\()',
+        '任意代码执行': r'(=.*phpinfo|=.*php://|=.*\$_post\[|=.*\$_get\[|=.*\$_server\[|=.*exec\(|=.*system\(|=.*call_user_func|=.*passthru\(|=.*eval\(|=.*execute\(|=.*shell_exec\(|=.*file_get_contents\(|=.*xp_cmdshell|=.*array_map\(|=.*create_function\|=.*unserialize\(|=.*echo\()',
     },
     'struts2vuln':{
         'struts005~009': r'xwork.MethodAccessor.denyMethodExecution',
