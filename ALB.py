@@ -19,7 +19,7 @@ rules = {
         'UNION注入': r'union.*select.*from',
         'MSSQL报错注入': r'(and|or).*(in.*select|=convert|=concat)',
         'MySQL报错注入': r'(and|or).*(extractvalue|updatexml|floor)',
-        'Oracle报错注入': r'(and|or).*(UPPER.*XMLType|utl_inaddr|ctxsys|dbms_utility)',
+        'Oracle报错注入': r'(and|or).*(UPPER.*XMLType|utl_inaddr|CTXSYS.DRITHSX.SN|dbms_utility)',
         'MySQL盲注': r'(and|or).*(rlike|make_set|elt|sleep)',
         'Oracle盲注': r'select.*case[\s\S]when.*=.*then.*dual',
         'Oracle时间盲注': r'(and|or|begin|select).*(dbms_pipe|select.*from.*all_users|dbms_lock)',
